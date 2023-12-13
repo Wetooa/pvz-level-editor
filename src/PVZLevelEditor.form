@@ -45,12 +45,6 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="a6dc1" class="javax.swing.JButton" binding="discardChangesButton" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Discard Changes"/>
-                </properties>
-              </component>
               <component id="cb5b8" class="javax.swing.JButton" binding="saveChangesButton" default-binding="true">
                 <constraints/>
                 <properties>
@@ -408,7 +402,7 @@
                         <properties/>
                         <border type="none"/>
                         <children>
-                          <grid id="fd397" binding="cbPlants" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="fd397" binding="cbPlants" layout-manager="GridLayoutManager" row-count="11" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -426,34 +420,34 @@
                               </component>
                               <component id="1c263" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
                                 <constraints>
-                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <text value="CheckBox"/>
                                 </properties>
                               </component>
-                              <component id="48cdf" class="javax.swing.JCheckBox" binding="checkBox3" default-binding="true">
+                              <component id="48cdf" class="javax.swing.JCheckBox" binding="chomperCheckBox" default-binding="true">
                                 <constraints>
                                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
-                                  <text value="CheckBox"/>
+                                  <text value="Chomper"/>
                                 </properties>
                               </component>
-                              <component id="1386f" class="javax.swing.JCheckBox" binding="checkBox6" default-binding="true">
+                              <component id="1386f" class="javax.swing.JCheckBox" binding="cbGatlingPea">
                                 <constraints>
                                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
-                                  <text value="CheckBox"/>
+                                  <text value="Gatling Pea"/>
                                 </properties>
                               </component>
-                              <component id="7849" class="javax.swing.JCheckBox" binding="checkBox11" default-binding="true">
+                              <component id="7849" class="javax.swing.JCheckBox" binding="cbRepeater">
                                 <constraints>
                                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
-                                  <text value="CheckBox"/>
+                                  <text value="Repeater"/>
                                 </properties>
                               </component>
                               <component id="3d51" class="javax.swing.JCheckBox" binding="cbPeashooter">
@@ -462,6 +456,46 @@
                                 </constraints>
                                 <properties>
                                   <text value="Peashooter"/>
+                                </properties>
+                              </component>
+                              <component id="d2aeb" class="javax.swing.JCheckBox" binding="checkBox6" default-binding="true">
+                                <constraints>
+                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="CheckBox"/>
+                                </properties>
+                              </component>
+                              <component id="d608a" class="javax.swing.JCheckBox" binding="checkBox11" default-binding="true">
+                                <constraints>
+                                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="CheckBox"/>
+                                </properties>
+                              </component>
+                              <component id="be5b6" class="javax.swing.JCheckBox" binding="checkBox12" default-binding="true">
+                                <constraints>
+                                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="CheckBox"/>
+                                </properties>
+                              </component>
+                              <component id="d128f" class="javax.swing.JCheckBox" binding="checkBox13" default-binding="true">
+                                <constraints>
+                                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="CheckBox"/>
+                                </properties>
+                              </component>
+                              <component id="c537d" class="javax.swing.JCheckBox" binding="checkBox14" default-binding="true">
+                                <constraints>
+                                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="CheckBox"/>
                                 </properties>
                               </component>
                             </children>
@@ -476,7 +510,7 @@
                         <properties/>
                         <border type="none"/>
                         <children>
-                          <component id="cd9b7" class="javax.swing.JList" binding="list1" default-binding="true">
+                          <component id="cd9b7" class="javax.swing.JList" binding="plantList">
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="50"/>
@@ -582,13 +616,15 @@
                         <properties/>
                         <border type="none"/>
                         <children>
-                          <component id="3b54c" class="javax.swing.JList" binding="list2" default-binding="true">
+                          <component id="3b54c" class="javax.swing.JList" binding="zombieList">
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="50"/>
                               </grid>
                             </constraints>
-                            <properties/>
+                            <properties>
+                              <model/>
+                            </properties>
                           </component>
                         </children>
                       </grid>
