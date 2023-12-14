@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4722edd-5165-4f9e-ae1a-2a3f777b44f6" name="Changes" comment="added functionality">
+    <list default="true" id="d4722edd-5165-4f9e-ae1a-2a3f777b44f6" name="Changes" comment="added zombies and plants in gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PVZLevelEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/PVZLevelEditor.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PVZLevelEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PVZLevelEditor.java" afterDir="false" />
     </list>
@@ -93,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702533976410</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added zombies and plants in gui">
+      <option name="closed" value="true" />
+      <created>1702568241228</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702568241228</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -101,7 +110,8 @@
     <MESSAGE value="added other settings" />
     <MESSAGE value="added more stuff" />
     <MESSAGE value="added functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added functionality" />
+    <MESSAGE value="added zombies and plants in gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="added zombies and plants in gui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

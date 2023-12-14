@@ -27,7 +27,7 @@ public class GameSettings implements Serializable {
 
     public String window = "Fullscreen";
     public String background = "LawnDay";
-
+    public boolean isBossFight = false;
 
     public GameSettings() {
         selectedPlants = new ArrayList<String>();

@@ -5,6 +5,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PVZLevelEditor extends  JFrame {
 
@@ -26,8 +28,6 @@ public class PVZLevelEditor extends  JFrame {
     private JCheckBox cbPlantNoCooldown;
     private JSlider slSunValue;
     private JPanel StartingSun;
-    private JList plantList;
-    private JList zombieList;
     private JCheckBox cbConeheadZombie;
     private JCheckBox cbBungeeZombie;
     private JCheckBox cbPoleVaultingZombie;
@@ -73,14 +73,20 @@ public class PVZLevelEditor extends  JFrame {
     private JCheckBox cbScreendoorZombie;
     private JCheckBox cbGargantuar;
     private JCheckBox cbZomboni;
+    private JCheckBox cbDrSerato;
+    private JTextArea taPlants;
+    private JTextArea taZombies;
 
 
     public static final int MAX_PLANT_COUNT = 8;
 
-    protected int plantCount = 0;
-    protected int zombieCount = 0;
     GameSettings gameSettings;
     protected static final String filePath = "./settings.ser";
+
+
+    protected Map<String, JCheckBox> zombiesMap = null;
+    protected Map<String, JCheckBox> plantsMap = null;
+
 
     public void loadFromFile(String file) {
         try (
@@ -105,7 +111,25 @@ public class PVZLevelEditor extends  JFrame {
             slZombieMovementSpeed.setValue(gameSettings.zombieMovementSpeedMultiplier);
             slZombieSpawnRate.setValue(gameSettings.zombieSpawnRateMultiplier);
 
-            System.out.println("Game state loaded from file successfully.");
+            for (String s : gameSettings.selectedPlants) {
+                (plantsMap.get(s)).setSelected(true);
+            }
+
+            for (String s : gameSettings.selectedZombies) {
+                (zombiesMap.get(s)).setSelected(true);
+            }
+
+            taPlants.setText("");
+            for (String p : gameSettings.selectedPlants) {
+                taPlants.setText(taPlants.getText() + p + "\n");
+            }
+
+            taZombies.setText("");
+            for (String z : gameSettings.selectedZombies) {
+                taZombies.setText(taZombies.getText() + z + "\n");
+            }
+
+            System.out.println("Game settings loaded from file successfully.");
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Game settings could not be loaded! Initializing default settings!");
@@ -113,12 +137,53 @@ public class PVZLevelEditor extends  JFrame {
         }
     }
 
+    public static String cleanString(String s) {
+        return s.replaceAll("\\s", "");
+    }
 
     public PVZLevelEditor() {
 
-        loadFromFile(filePath);
+        zombiesMap = new HashMap<>();
+        plantsMap = new HashMap<>();
 
-        JOptionPane jOption = new JOptionPane();
+        zombiesMap.put("Zombie", cbZombie);
+        zombiesMap.put("ConeheadZombie", cbConeheadZombie);
+        zombiesMap.put("BucketheadZombie", cbBucketheadZombie);
+        zombiesMap.put("FootballZombie", cbFootballZombie);
+        zombiesMap.put("PoleVaultingZombie", cbPoleVaultingZombie);
+        zombiesMap.put("NewspaperZombie", cbNewspaperZombie);
+        zombiesMap.put("PogoZombie", cbPogoZombie);
+        zombiesMap.put("ScreendoorZombie", cbScreendoorZombie);
+        zombiesMap.put("GargantuarZombie", cbGargantuar);
+        zombiesMap.put("BungeeZombie", cbBungeeZombie);
+
+        plantsMap.put("Sunflower", cbSunflower);
+        plantsMap.put("Peashooter", cbPeashooter);
+        plantsMap.put("Repeater", cbRepeater);
+        plantsMap.put("GatlingPea", cbGatlingPea);
+        plantsMap.put("PotatoMine", cbPotatoMine);
+        plantsMap.put("Cherrybomb", cbChomper);
+        plantsMap.put("WallNut", cbWallNut);
+        plantsMap.put("Chomper", cbChomper);
+        plantsMap.put("Snowpea", cbSnowpea);
+
+        plantsMap.put("FumeShroom", cbFumeShroom);
+        plantsMap.put("GloomShroom", cbGloomShroom);
+        plantsMap.put("IceShroom", cbIceShroom);
+        plantsMap.put("DoomShroom", cbDoomShroom);
+
+        plantsMap.put("Threepeater", cbThreepeater);
+        plantsMap.put("Squash", cbSquash);
+        plantsMap.put("SpikeWeed", cbSpikeWeed);
+        plantsMap.put("SpikeRock", cbSpikeRock);
+        plantsMap.put("TallNut", cbTallNut);
+        plantsMap.put("Jalapeno", cbJalapeno);
+        plantsMap.put("Torchwood", cbTorchwoord);
+
+        plantsMap.put("Pumpkin", cbPumpkin);
+        plantsMap.put("CoffeeBean", cbCoffeeBean);
+
+        loadFromFile(filePath);
 
         ActionListener cbPlantsActionListener = new ActionListener() {
 
@@ -129,24 +194,27 @@ public class PVZLevelEditor extends  JFrame {
                 boolean isSelected = cbPlant.isSelected();
 
                 if (isSelected) {
-                    if (plantCount == MAX_PLANT_COUNT) {
-                        jOption.createDialog("Maximum plant count! Remove one to add " + pName + " to the list");
-                        return;
+                    if (gameSettings.selectedPlants.size() == MAX_PLANT_COUNT) {
+                        JOptionPane.showMessageDialog(null, "Maximum plant count! Remove one to add " + pName + " to the list", "Max Plant Count", JOptionPane.WARNING_MESSAGE);
+                        cbPlant.setSelected(false);
+                    } else {
+                        gameSettings.selectedPlants.add(cleanString(pName));
                     }
-                    ++plantCount;
-                    gameSettings.selectedPlants.add(pName);
                 } else {
-                    gameSettings.selectedPlants.remove(pName);
+                    gameSettings.selectedPlants.remove(cleanString(pName));
                 }
 
+                taPlants.setText("");
+                for (String p : gameSettings.selectedPlants) {
+                    taPlants.setText(taPlants.getText() + p + "\n");
+                }
 
             }
         };
 
-        cbPeashooter.addActionListener(cbPlantsActionListener);
-        cbSunflower.addActionListener(cbPlantsActionListener);
-        cbRepeater.addActionListener(cbPlantsActionListener);
-        cbGatlingPea.addActionListener(cbPlantsActionListener);
+        for (Map.Entry<String, JCheckBox> entry : plantsMap.entrySet()) {
+            entry.getValue().addActionListener(cbPlantsActionListener);
+        }
 
         ActionListener cbZombiesActionListener = new ActionListener() {
             @Override
@@ -156,20 +224,24 @@ public class PVZLevelEditor extends  JFrame {
                 String zName = cbZombie.getText();
                 boolean isSelected = cbZombie.isSelected();
 
+
                 if (isSelected) {
-                    ++zombieCount;
-                    gameSettings.selectedZombies.add(zName);
+                    gameSettings.selectedZombies.add(cleanString(zName));
                 } else {
-                    gameSettings.selectedZombies.remove(zName);
+                    gameSettings.selectedZombies.remove(cleanString(zName));
+                }
+
+                taZombies.setText("");
+                for (String z : gameSettings.selectedZombies) {
+                    taZombies.setText(taZombies.getText() + z + "\n");
                 }
             }
         };
 
-        cbZombie.addActionListener(cbZombiesActionListener);
-        cbConeheadZombie.addActionListener(cbZombiesActionListener);
-        cbBucketheadZombie.addActionListener(cbZombiesActionListener);
-        cbFootballZombie.addActionListener(cbZombiesActionListener);
-        cbPoleVaultingZombie.addActionListener(cbZombiesActionListener);
+        for (Map.Entry<String, JCheckBox> entry : zombiesMap.entrySet()) {
+            entry.getValue().addActionListener(cbZombiesActionListener);
+        }
+
 
         saveChangesButton.addActionListener(new ActionListener() {
             @Override
@@ -186,6 +258,7 @@ public class PVZLevelEditor extends  JFrame {
                 }
             }
         });
+
 
         resetToDefaultButton.addActionListener(new ActionListener() {
             @Override
@@ -300,6 +373,13 @@ public class PVZLevelEditor extends  JFrame {
         lawnFallRadioButton.addActionListener(listener1);
         lawnNightRadioButton.addActionListener(listener1);
         lawnWinterRadioButton.addActionListener(listener1);
+
+        cbDrSerato.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameSettings.isBossFight = ((JCheckBox)e.getSource()).isSelected();
+            }
+        });
     }
 
     public static void main(String[] args) {
