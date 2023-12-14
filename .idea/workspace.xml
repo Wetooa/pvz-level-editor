@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4722edd-5165-4f9e-ae1a-2a3f777b44f6" name="Changes" comment="added more stuff">
-      <change afterPath="$PROJECT_DIR$/src/GameSettings.java" afterDir="false" />
+    <list default="true" id="d4722edd-5165-4f9e-ae1a-2a3f777b44f6" name="Changes" comment="added functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PVZLevelEditor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/PVZLevelEditor.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PVZLevelEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PVZLevelEditor.java" afterDir="false" />
@@ -86,14 +85,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702496948632</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added functionality">
+      <option name="closed" value="true" />
+      <created>1702533976410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702533976410</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialized Level Editor" />
     <MESSAGE value="added other settings" />
     <MESSAGE value="added more stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more stuff" />
+    <MESSAGE value="added functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

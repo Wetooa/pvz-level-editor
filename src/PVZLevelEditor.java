@@ -29,26 +29,23 @@ public class PVZLevelEditor extends  JFrame {
     private JList plantList;
     private JList zombieList;
     private JCheckBox cbConeheadZombie;
-    private JCheckBox checkBox2;
+    private JCheckBox cbBungeeZombie;
     private JCheckBox cbPoleVaultingZombie;
     private JCheckBox cbFootballZombie;
     private JCheckBox cbBucketheadZombie;
     private JSlider slZombieMovementSpeed;
     private JCheckBox cbSunflower;
-    private JCheckBox checkBox1;
+    private JCheckBox cbSnowpea;
     private JCheckBox cbChomper;
     private JCheckBox cbGatlingPea;
     private JCheckBox cbRepeater;
-    private JCheckBox checkBox6;
-    private JCheckBox checkBox11;
-    private JCheckBox checkBox12;
-    private JCheckBox checkBox13;
-    private JCheckBox checkBox14;
+    private JCheckBox cbWallNut;
+    private JCheckBox cbCherrybomb;
     private JSlider slZombieSpawnRate;
     private JSlider slZombieDamage;
     private JSlider slZombieHealth;
     private JSlider slStartingSun;
-    private JButton stopButton1;
+    private JButton startButton;
     private JButton stopButton;
     private JProgressBar progressBar1;
     private JRadioButton lawnSummerRadioButton;
@@ -56,6 +53,26 @@ public class PVZLevelEditor extends  JFrame {
     private JRadioButton lawnNightRadioButton;
     private JRadioButton lawnWinterRadioButton;
     private JCheckBox cbInvisighoul;
+    private JTabbedPane tabbedPane2;
+    private JCheckBox cbFumeShroom;
+    private JCheckBox cbDoomShroom;
+    private JCheckBox cbIceShroom;
+    private JCheckBox cbGloomShroom;
+    private JCheckBox cbThreepeater;
+    private JCheckBox cbTorchwoord;
+    private JCheckBox cbJalapeno;
+    private JCheckBox cbPumpkin;
+    private JCheckBox cbCoffeeBean;
+    private JCheckBox cbTallNut;
+    private JCheckBox cbSpikeWeed;
+    private JCheckBox cbSquash;
+    private JCheckBox cbSpikeRock;
+    private JCheckBox cbPotatoMine;
+    private JCheckBox cbNewspaperZombie;
+    private JCheckBox cbPogoZombie;
+    private JCheckBox cbScreendoorZombie;
+    private JCheckBox cbGargantuar;
+    private JCheckBox cbZomboni;
 
 
     public static final int MAX_PLANT_COUNT = 8;
@@ -78,12 +95,11 @@ public class PVZLevelEditor extends  JFrame {
             cbPlantDoubleSpeed.setSelected(gameSettings.plantDoubleSpeed);
             cbNoLawnmower.setSelected(gameSettings.noLawnmower);
 
-            System.out.println(gameSettings.sunFallRate);
-
             slSunFallRate.setValue(gameSettings.sunFallRate);
             slSunValue.setValue(gameSettings.sunSunValue);
             slStartingSun.setValue(gameSettings.startingSun);
 
+            cbInvisighoul.setSelected(gameSettings.zombieInvisighoul);
             slZombieHealth.setValue(gameSettings.zombieHealthMultiplier);
             slZombieDamage.setValue(gameSettings.zombieDamageMultiplier);
             slZombieMovementSpeed.setValue(gameSettings.zombieMovementSpeedMultiplier);
